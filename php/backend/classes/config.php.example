@@ -1,6 +1,6 @@
 <?php
-    define('DB_HOST','localhost');
-    define('DB_USER','hexfield');
-    define('DB_PWD','48924756aA!');
-    define('DB_NAME','trixion');
+    define('DB_HOST','YOUR DB HOST');
+    define('DB_USER','YOUR DB USER');
+    define('DB_PWD','YOUR DB PASSWORD');
+    define('DB_NAME','YOUR DB NAME');
 ?>
