@@ -1,8 +1,4 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
 class DeleteCharacterContr extends DeleteCharacter{
     private $idUser;
@@ -14,7 +10,6 @@ class DeleteCharacterContr extends DeleteCharacter{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->idUser) || empty($this->charId)){
             $result = false;
         }else{
@@ -24,7 +19,6 @@ class DeleteCharacterContr extends DeleteCharacter{
     }
 
     private function charOwnership(){
-        $result;
         if(!$this->checkCharacterOwnership($this->idUser, $this->charId)){
             $result = false;
         }else{
@@ -45,9 +39,6 @@ class DeleteCharacterContr extends DeleteCharacter{
             echo $response;
             exit();
         }
-
-
-
 
         $this->deleteCharacter($this->idUser, $this->charId);
     }

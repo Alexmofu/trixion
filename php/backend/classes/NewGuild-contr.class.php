@@ -10,7 +10,6 @@ class NewGuildContr extends NewGuild{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->idUser) || empty($this->guildName)){
             $result = false;
         }else{
@@ -20,7 +19,6 @@ class NewGuildContr extends NewGuild{
     }
 
     private function guildNameTooLong(){
-        $result;
         if (strlen($this->guildName) > 15){
             $result = false;
         }
@@ -31,7 +29,6 @@ class NewGuildContr extends NewGuild{
     }
 
     private function invalidGuildName(){ 
-        $result;
         if (!preg_match("/^[a-zA-Z]*$/", $this->guildName)){
             $result = false;
         }

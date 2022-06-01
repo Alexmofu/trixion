@@ -1,8 +1,4 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
 class KickGuildMemberContr extends KickGuildMember{
     private $requesterId;
@@ -15,7 +11,6 @@ class KickGuildMemberContr extends KickGuildMember{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->requesterId) || empty($this->kickUsername)){
             $result = false;
         }else{
@@ -25,7 +20,6 @@ class KickGuildMemberContr extends KickGuildMember{
     }
 
     private function invalidKickUsername(){ 
-        $result;
         if (!preg_match("/^[a-zA-Z0-9]*$/", $this->kickUsername)){
             $result = false;
         }
@@ -36,7 +30,6 @@ class KickGuildMemberContr extends KickGuildMember{
     }
 
     private function kickUsernameTooLong(){
-        $result;
         if (strlen($this->kickUsername) > 16){
             $result = false;
         }
@@ -47,7 +40,6 @@ class KickGuildMemberContr extends KickGuildMember{
     }
 
     private function guildOwnership(){
-        $result;
         if(!$this->checkOwnership($this->requesterId)){
             $result = false;
         }else{
@@ -57,7 +49,6 @@ class KickGuildMemberContr extends KickGuildMember{
     }
 
     private function guildMembership(){
-        $result;
         if(!$this->checkGuildMembership($this->requesterId, $this->kickUsername)){
             $result = false;
         }else{
@@ -66,7 +57,6 @@ class KickGuildMemberContr extends KickGuildMember{
         return $result;
     }
     private function checkUserRole(){
-        $result;
         if(!$this->kickUsernameRole($this->kickUsername)){
             $result = false;
         }else{

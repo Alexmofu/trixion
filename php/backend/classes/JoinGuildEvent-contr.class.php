@@ -47,7 +47,6 @@ class JoinGuildEventContr extends JoinGuildEvent{
         return $result;
     }
 
-    //TODO MORE CHECKS
     private function eventCapacity(){
         if(!$this->checkeventCapacity($this->eventId)){
             $result = false;
@@ -56,8 +55,6 @@ class JoinGuildEventContr extends JoinGuildEvent{
         }
         return $result;
     }
-
-    //CHECK IF EVENT IS ALREADY FULL
 
 
     public function joinGuildEvent(){

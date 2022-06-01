@@ -49,10 +49,6 @@ class JoinGuild extends Dbh{
         $guildName = $guildName[0]['name'];
         $stmt = null;
 
-        //Assigns Session Variables
-/*         $_SESSION["id_guild"] = $idGuild;
-        $_SESSION["guildName"] = $guildName; */
-
     }
 
     public function checkGuild($guildSecret){
@@ -67,8 +63,7 @@ class JoinGuild extends Dbh{
             echo $response;
             exit();
         }
-
-        $resultCheck;
+        
         if($stmt->rowCount() > 0){
             $resultCheck = false;
         }

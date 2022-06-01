@@ -1,13 +1,9 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+
 
 class DeleteCharacter extends Dbh{
 
     protected function deleteCharacter($idUser, $idCharacter){
-       /*  $sql = "UPDATE characters SET (name, id_class, ilvl) VALUES (:charName, :charClass, :charIlvl) WHERE id_user = :idUser AND id_character = :idCharacter;"; */
         $sql = "DELETE FROM characters WHERE id_user = :idUser AND id_character = :idCharacter;";
         $stmt = $this->connect()->prepare($sql);
         $stmt->bindParam(':idUser', $idUser);
@@ -37,7 +33,6 @@ class DeleteCharacter extends Dbh{
             exit();
         }
         
-        $resultCheck;
         if($stmt->rowCount() == 1){
             $resultCheck = true;
         }

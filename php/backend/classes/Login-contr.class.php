@@ -10,7 +10,6 @@ class LoginContr extends Login{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->username) || empty($this->password)){
             $result = false;
         }else{

@@ -14,7 +14,6 @@ class SignupContr extends Signup{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->username) || empty($this->password) || empty($this->password_repeat) || empty($this->email)){
             $result = false;
         }else{
@@ -24,7 +23,6 @@ class SignupContr extends Signup{
     }
 
     private function invalidUsername(){
-        $result;
         if (!preg_match("/^[a-zA-Z0-9]*$/", $this->username)){
             $result = false;
         }
@@ -35,7 +33,6 @@ class SignupContr extends Signup{
     }
 
     private function invalidEmail(){
-        $result;
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
             $result = false;
         }else{
@@ -45,7 +42,6 @@ class SignupContr extends Signup{
     }
 
     private function passwordMatch(){
-        $result;
         if($this->password !== $this->password_repeat){
             $result = false;
         }else{
@@ -55,7 +51,6 @@ class SignupContr extends Signup{
     }
 
     private function usernameTakenCheck(){
-        $result;
         if(!$this->checkUser($this->username, $this->email)){
             $result = false;
         }else{
@@ -65,7 +60,6 @@ class SignupContr extends Signup{
     }
 
     private function passwordTooShort(){
-        $result;
         if (strlen($this->password) < 8 || strlen($this->password_repeat) < 8){
             $result = false;
         }
@@ -76,7 +70,6 @@ class SignupContr extends Signup{
     }
 
     private function passwordOneLowercase(){
-        $result;
         if (!preg_match('@[a-z]@', $this->password) || !preg_match('@[a-z]@', $this->password_repeat)){
             $result = false;
         }
@@ -87,7 +80,6 @@ class SignupContr extends Signup{
     }
 
     private function passwordOneUppercase(){
-        $result;
         if (!preg_match('@[A-Z]@', $this->password) || !preg_match('@[A-Z]@', $this->password_repeat)){
             $result = false;
         }
@@ -98,7 +90,6 @@ class SignupContr extends Signup{
     }
 
     private function passwordOneNumber(){
-        $result;
         if (!preg_match('@[0-9]@', $this->password) || !preg_match('@[0-9]@', $this->password_repeat)){
             $result = false;
         }
@@ -109,7 +100,6 @@ class SignupContr extends Signup{
     }
 
     private function passwordOneSpecialchar(){
-        $result;
         if (!preg_match('@[^\w]@', $this->password) || !preg_match('@[^\w]@', $this->password_repeat)){
             $result = false;
         }

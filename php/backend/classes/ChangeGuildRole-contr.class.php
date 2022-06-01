@@ -1,8 +1,4 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
 class ChangeGuildRoleContr extends ChangeGuildRole{
     private $requesterId;
@@ -17,7 +13,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->requesterId) || empty($this->memberName) || empty($this->userRole)){
             $result = false;
         }else{
@@ -27,7 +22,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
     }
 
     private function invalidMemberName(){ 
-        $result;
         if (!preg_match("/^[a-zA-Z0-9]*$/", $this->memberName)){
             $result = false;
         }
@@ -38,7 +32,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
     }
 
     private function memberNameTooLong(){
-        $result;
         if (strlen($this->memberName) > 16){
             $result = false;
         }
@@ -49,7 +42,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
     }
 
     private function preventAdminPromotion(){
-        $result;
         if ($this->userRole == "admin"){
             $result = false;
         }
@@ -60,7 +52,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
     }
 
     private function guildOwnership(){
-        $result;
         if(!$this->checkOwnership($this->requesterId)){
             $result = false;
         }else{
@@ -70,7 +61,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
     }
 
     private function guildMembership(){
-        $result;
         if(!$this->checkGuildMembership($this->requesterId, $this->memberName)){
             $result = false;
         }else{
@@ -79,7 +69,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
         return $result;
     }
     private function checkUserRole(){
-        $result;
         if(!$this->memberNameRole($this->memberName)){
             $result = false;
         }else{
@@ -87,19 +76,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
         }
         return $result;
     }
-    /* private function preventSelfEdit(){
-        $result;
-        if(($this->requesterId) == ($this->memberName)){
-            $result = false;
-        }else{
-            $result = true;
-        }
-        return $result;
-    } */
-
-    
-
-
 
     public function changeRole(){
         if($this->emptyInput() == false){
@@ -137,11 +113,6 @@ class ChangeGuildRoleContr extends ChangeGuildRole{
             echo $response;
             exit();
         }
-        /* if($this->preventSelfEdit() == false){
-            $response = "You cannot change your own Role";
-            echo $response;
-            exit();
-        } */
 
         $userRoleChanged = $this->changeUserRole($this->memberName, $this->userRole);
         

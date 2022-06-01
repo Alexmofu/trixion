@@ -1,8 +1,4 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
 class KickGuildMember extends Dbh{
 
@@ -36,7 +32,6 @@ class KickGuildMember extends Dbh{
             exit();
         }
 
-        $resultCheck;
         if($stmt->rowCount() < 0){
             $resultCheck = false;
         }
@@ -68,7 +63,6 @@ class KickGuildMember extends Dbh{
             exit();
         }
 
-        $resultCheck;
         if($stmt->rowCount() == 0){
             $resultCheck = false;
         }
@@ -111,7 +105,6 @@ class KickGuildMember extends Dbh{
             exit();
         }
 
-        $resultCheck;
         if($stmt->rowCount() == 0){
             $resultCheck = false;
         }

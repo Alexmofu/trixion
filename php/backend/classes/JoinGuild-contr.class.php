@@ -10,7 +10,6 @@ class JoinGuildContr extends JoinGuild{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->idUser) || empty($this->guildSecret)){
             $result = false;
         }else{
@@ -20,7 +19,6 @@ class JoinGuildContr extends JoinGuild{
     }
 
     private function guildNotExists(){
-        $result;
         if(!$this->checkGuild($this->guildSecret)){
             $result = false;
         }else{

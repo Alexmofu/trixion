@@ -1,12 +1,6 @@
 <?php
 //SESSION START
 session_start();
-
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 /* AUTOLOADER */
 include './php/backend/includes/class-autoload.inc.php';
 ?>

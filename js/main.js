@@ -1,9 +1,9 @@
 /* Ready */
 $(document).ready(function () {
 
-  /*******************************************/
+  /****************/
   /* LATERAL MENU */
-  /*******************************************/
+  /****************/
 
   /* Mobile Hamburger */
   $(".navbartop").on('click', (e) => {
@@ -16,21 +16,9 @@ $(document).ready(function () {
     window.location.replace("http://www.trixion.net");
   })
 
-  /* $("#dashboard").on('click', (e) => {
-    window.location.replace("http://www.trixion.net/dashboard");
-  }) */
-
   $("#guildplanner").on('click', (e) => {
     window.location.replace("http://www.trixion.net/guildplanner");
   })
-
-  /* $("#guildmarket").on('click', (e) => {
-    window.location.replace("http://www.trixion.net/guildmarket");
-  }) */
-
-  /* $("#dailyplanner").on('click', (e) => {
-    window.location.replace("http://www.trixion.net/dailyplanner");
-  }) */
 
   $("#support").on('click', (e) => {
     window.location.replace("http://www.trixion.net/support");
@@ -97,8 +85,6 @@ $("#signupform").on('submit', (e) => {
       if (res == "success") {
         //SUCCESSFULLY REGISTER
         window.location.replace("http://www.trixion.net/account");
-       /*  $("#signuperror").text("Account successfully created, try login in"); */
-        
       } else {
         $("#signuperror").text(res);
         $("#signupform").trigger("reset");
@@ -284,10 +270,10 @@ $('.memberRole').on('change', (e) => {
     success: function (res) {
       if (res == "success") {
         //success feedback
-        console.log(res);
+        /* console.log(res);  */
       } else {
         //UserFeedback error msg
-        console.log(res);
+        /* console.log(res); */
       }
     }
   })
@@ -373,8 +359,6 @@ $("body").on('submit', '.characterForm', (e) => {
         $(e.target).find(".characterError").css("display", "block");
         $(e.target).find(".characterError").text("Succesfully Modified");
         $(e.target).find(".characterError").delay(3000).queue(function () {
-          /* $(e.target).find(".CharacterDetailOpen").toggleClass("charSelected");
-          $(e.target).find(".characterDetails").toggleClass("characterEditing"); */
           $(e.target).find(".characterError").css("display", "none");
           $.dequeue(this);
         })
@@ -528,7 +512,7 @@ $('.characterPicker-Char').on('click', (e) => {
     type: 'POST',
     data: data,
     success: function (res) {
-      if (res == "success" || res == "\r\nsuccess") { /* \r\n todo removal, sometimes returned a weird enter here. */
+      if (res == "success" || res == "\r\nsuccess") {
         $(".characterPickerModal").removeClass('characterPickerModalActive');
         $('.eventModalActive').find(".guildEventCharacters").append('<li class="guildEventCharacter guildEventCharacterOwn"><div class="guildEventCharacterName">' + joinCharacterName + ' </div><div class="guildEventCharacterDetails">' + joinCharacterClass + ' - ' + joinCharacterIlvl + '</div></li>');
         let currentPlayers = $('.eventModalActive').find('.guildEventModalCurrentParticipants').text();

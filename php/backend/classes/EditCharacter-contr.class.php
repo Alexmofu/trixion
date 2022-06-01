@@ -1,9 +1,4 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 class EditCharacterContr extends EditCharacter{
     private $idUser;
     private $charId;
@@ -20,7 +15,6 @@ class EditCharacterContr extends EditCharacter{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->idUser) || empty($this->charId) || empty($this->charName) || empty($this->charClass) || empty($this->charIlvl)){
             $result = false;
         }else{
@@ -30,7 +24,6 @@ class EditCharacterContr extends EditCharacter{
     }
 
     private function invalidCharName(){ 
-        $result;
         if (!preg_match("/^[a-zA-Z0-9]*$/", $this->charName)){
             $result = false;
         }
@@ -41,7 +34,6 @@ class EditCharacterContr extends EditCharacter{
     }
 
     private function charNameTooLong(){
-        $result;
         if (strlen($this->charName) > 16){
             $result = false;
         }
@@ -52,7 +44,6 @@ class EditCharacterContr extends EditCharacter{
     }
 
     private function charIlvlOnlyNumber(){
-        $result;
         if (!preg_match("/^[1-9][0-9]*$/", $this->charIlvl)){
             $result = false;
         }
@@ -63,7 +54,6 @@ class EditCharacterContr extends EditCharacter{
     }
 
     private function charIlvlLength(){
-        $result;
         if (strlen($this->charIlvl) > 4){
             $result = false;
         }
@@ -72,22 +62,7 @@ class EditCharacterContr extends EditCharacter{
         }
         return $result;
     }
-
-    /* private function charAlreadyExists(){
-        $result;
-        if(!$this->checkCharacter($this->idUser, $this->charName)){
-            $result = false;
-            if(!$this->checkSameCharacter($this->charname)){
-
-            }
-        }else{
-            $result = true;
-        }
-        return $result;
-    } */
-
     private function charOwnership(){
-        $result;
         if(!$this->checkCharacterOwnership($this->idUser, $this->charId)){
             $result = false;
         }else{
@@ -123,11 +98,6 @@ class EditCharacterContr extends EditCharacter{
             echo $response;
             exit();
         }
-        /* if($this->charAlreadyExists() == false){
-            $response = "Character Already Exists";
-            echo $response;
-            exit();
-        } */
         if($this->charOwnership() == false){
             $response = "Not you character Id, nice try.";
             echo $response;
@@ -142,4 +112,3 @@ class EditCharacterContr extends EditCharacter{
 
 
 }
-?>

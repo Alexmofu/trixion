@@ -1,7 +1,5 @@
 <?php
-
 Class DisbandGuild extends Dbh{
-
 
     public function leaveGuild($idUser){
         $sql = "UPDATE users SET id_guild = NULL, guild_role = 'member' WHERE users.id_user = ?";

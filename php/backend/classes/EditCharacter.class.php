@@ -1,13 +1,8 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
 class EditCharacter extends Dbh{
 
     protected function editCharacter($idUser, $idCharacter, $charName, $charClass, $charIlvl){
-       /*  $sql = "UPDATE characters SET (name, id_class, ilvl) VALUES (:charName, :charClass, :charIlvl) WHERE id_user = :idUser AND id_character = :idCharacter;"; */
         $sql = "UPDATE characters SET name = :charName, ilvl = :charIlvl, id_class = :charClass WHERE id_user = :idUser AND id_character = :idCharacter;";
         $stmt = $this->connect()->prepare($sql);
         $stmt->bindParam(':idUser', $idUser);
@@ -39,7 +34,6 @@ class EditCharacter extends Dbh{
             exit();
         }
 
-        $resultCheck;
         if($stmt->rowCount() > 0){
             $resultCheck = false;
         }
@@ -65,7 +59,6 @@ class EditCharacter extends Dbh{
             exit();
         }
         
-        $resultCheck;
         if($stmt->rowCount() == 1){
             $resultCheck = true;
         }

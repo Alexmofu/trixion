@@ -1,8 +1,4 @@
 <?php
-//DEBUG ERROR HANDLER
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
 
 class NewCharacterContr extends NewCharacter{
     private $idUser;
@@ -18,7 +14,6 @@ class NewCharacterContr extends NewCharacter{
     }
 
     private function emptyInput(){
-        $result;
         if(empty($this->idUser) || empty($this->charName) || empty($this->charClass) || empty($this->charIlvl)){
             $result = false;
         }else{
@@ -28,7 +23,6 @@ class NewCharacterContr extends NewCharacter{
     }
 
     private function invalidCharName(){ 
-        $result;
         if (!preg_match("/^[a-zA-Z0-9]*$/", $this->charName)){
             $result = false;
         }
@@ -39,7 +33,6 @@ class NewCharacterContr extends NewCharacter{
     }
 
     private function charNameTooLong(){
-        $result;
         if (strlen($this->charName) > 16){
             $result = false;
         }
@@ -50,7 +43,6 @@ class NewCharacterContr extends NewCharacter{
     }
 
     private function charIlvlOnlyNumber(){
-        $result;
         if (!preg_match("/^[1-9][0-9]*$/", $this->charIlvl)){
             $result = false;
         }
@@ -61,7 +53,6 @@ class NewCharacterContr extends NewCharacter{
     }
 
     private function charIlvlLength(){
-        $result;
         if (strlen($this->charIlvl) > 4){
             $result = false;
         }
@@ -72,7 +63,6 @@ class NewCharacterContr extends NewCharacter{
     }
 
     private function charAlreadyExists(){
-        $result;
         if(!$this->checkCharacter($this->idUser, $this->charName)){
             $result = false;
         }else{
