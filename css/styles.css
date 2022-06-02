@@ -1927,6 +1927,49 @@ input[type="number"]::-webkit-outer-spin-button {
   color: var(--color-red);
 }
 
+/*//////////////////////////////*/
+/*/         ERROR PAGES        /*/
+/*//////////////////////////////*/
+
+.errorbody{
+  background-color: var(--color-dark);
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.erroranim{
+  display: flex;
+  text-align: center;
+  min-height: 100vh;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.objecterror{
+  margin-left: auto;
+  margin-right: auto;
+}
+.backhome{
+  color: var(--color-orange);
+  font-weight: 700;
+  font-size: 14px;
+  flex-direction: column;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.backhome:hover{
+  cursor: pointer;
+}
+
+
+
+
+
+
 /************************************************/ /************************************************/
 /****                                       MEDIA QUERYS                                        ****/
 /************************************************/ /************************************************/
