@@ -674,7 +674,23 @@ $(".newEventGenerateButton").on('click', (e) => {
       if (containsNumber(res) == true) {
         location.reload(); //Easier to do cause no time left
       } else {
-        console.log(res);
+        $(".newEventModalContent-Title").css("color", "var(--color-red)");
+        $(".newEventModalContent-Title").text(res);
+        $(".newEventModalContent-Title").animate({
+          'font-size': '4em',
+          'padding-top': '41vh',
+          'padding-bottom': '41vh'
+        });
+        $(".newEventModalContent-Title").delay(2000).queue(function () {
+          $(".newEventModalContent-Title").animate({
+            'font-size': '1.3rem',
+            'padding-top': '0px',
+            'padding-bottom': '0px'
+          });
+          $(".newEventModalContent-Title").css("color", "var(--color-white)");
+          $(".newEventModalContent-Title").text("New Event");
+          $.dequeue(this);
+        })
       }
     }
   })
